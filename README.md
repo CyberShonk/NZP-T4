@@ -1,6 +1,6 @@
 # NZ:P T4
 
-NZ:P T4 is an **Android-first compatibility project** built around Nazi Zombies: Portable. Its long-term purpose is to investigate and progressively support legally obtained Call of Duty: World at War custom Zombies maps without redistributing proprietary game data or third-party maps.
+NZ:P T4 is an **Android compatibility project** built around Nazi Zombies: Portable. Its long term purpose is to investigate and progressively support legally obtained Call of Duty: World at War custom Zombies maps without redistributing proprietary game data or third-party maps.
 
 This repository is an early public foundation. It does **not** currently provide an Android game build or claim that any World at War custom map is playable.
 
