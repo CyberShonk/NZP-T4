@@ -1,0 +1,42 @@
+name: Bug report
+description: Report a reproducible project defect without uploading proprietary content.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not attach game files, map packages, extracted assets, copied scripts, native framework binaries, or logs containing personal paths.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What happened, and what was expected?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction
+      description: Provide minimal steps using original or synthetic data.
+    validations:
+      required: true
+  - type: input
+    id: revision
+    attributes:
+      label: Revision
+      description: Commit SHA or version.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Python version, and relevant device details.
+    validations:
+      required: true
+  - type: textarea
+    id: sanitized
+    attributes:
+      label: Sanitized output
+      description: Stable error codes or redacted report excerpts only.

@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nzp-t4:schema:compatibility-report:0.1.0",
+  "title": "NZ:P T4 Compatibility Report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "inspector",
+    "package",
+    "inspection_complete",
+    "safe_to_process",
+    "capability_tier",
+    "inventory",
+    "summary",
+    "framework_hints",
+    "findings"
+  ],
+  "properties": {
+    "schema_version": { "const": "0.1.0" },
+    "inspector": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version", "mode"],
+      "properties": {
+        "name": { "const": "nzp-t4-inspector" },
+        "version": { "type": "string", "minLength": 1 },
+        "mode": { "const": "read-only" }
+      }
+    },
+    "package": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["display_name", "type", "size", "sha256", "fingerprint"],
+      "properties": {
+        "display_name": { "type": "string" },
+        "type": {
+          "enum": ["directory", "zip", "iwd", "unsupported-file", "unknown"]
+        },
+        "size": { "type": "integer", "minimum": 0 },
+        "sha256": {
+          "oneOf": [
+            { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+            { "type": "null" }
+          ]
+        },
+        "fingerprint": {
+          "oneOf": [
+            { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+            { "type": "null" }
+          ]
+        }
+      }
+    },
+    "inspection_complete": { "type": "boolean" },
+    "safe_to_process": { "type": "boolean" },
+    "capability_tier": { "enum": ["U", "0"] },
+    "inventory": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "size", "sha256", "category", "extension"],
+        "properties": {
+          "path": { "type": "string", "minLength": 1 },
+          "size": { "type": "integer", "minimum": 0 },
+          "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "category": { "type": "string", "minLength": 1 },
+          "extension": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["file_count", "total_uncompressed_size", "category_counts", "extension_counts"],
+      "properties": {
+        "file_count": { "type": "integer", "minimum": 0 },
+        "total_uncompressed_size": { "type": "integer", "minimum": 0 },
+        "category_counts": {
+          "type": "object",
+          "additionalProperties": { "type": "integer", "minimum": 0 }
+        },
+        "extension_counts": {
+          "type": "object",
+          "additionalProperties": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "framework_hints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "confidence", "evidence_paths", "note"],
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "confidence": { "const": "name-only" },
+          "evidence_paths": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "note": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["code", "severity", "message"],
+        "properties": {
+          "code": { "type": "string", "pattern": "^[A-Z0-9_]+$" },
+          "severity": { "enum": ["info", "warning", "error"] },
+          "message": { "type": "string", "minLength": 1 },
+          "path": { "type": "string" }
+        }
+      }
+    }
+  }
+}

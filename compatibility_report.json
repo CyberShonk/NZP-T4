@@ -1,0 +1,33 @@
+{
+  "capability_tier": "U",
+  "findings": [
+    {
+      "code": "INPUT_NOT_FOUND",
+      "message": "Input path does not exist.",
+      "severity": "error"
+    }
+  ],
+  "framework_hints": [],
+  "inspection_complete": false,
+  "inspector": {
+    "mode": "read-only",
+    "name": "nzp-t4-inspector",
+    "version": "0.1.0"
+  },
+  "inventory": [],
+  "package": {
+    "display_name": "map-package",
+    "fingerprint": null,
+    "sha256": null,
+    "size": 0,
+    "type": "unknown"
+  },
+  "safe_to_process": false,
+  "schema_version": "0.1.0",
+  "summary": {
+    "category_counts": {},
+    "extension_counts": {},
+    "file_count": 0,
+    "total_uncompressed_size": 0
+  }
+}

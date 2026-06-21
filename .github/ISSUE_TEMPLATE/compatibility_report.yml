@@ -1,0 +1,39 @@
+name: Compatibility observation
+description: Submit sanitized package-inspection or runtime evidence.
+title: "[Compatibility]: "
+labels: ["compatibility-evidence"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Never upload the map package, proprietary assets, copied scripts, extracted geometry, or personal filesystem paths. Recognition does not establish support.
+  - type: input
+    id: package_hash
+    attributes:
+      label: Package SHA-256
+      description: Hash only; no package upload.
+    validations:
+      required: true
+  - type: input
+    id: revision
+    attributes:
+      label: Inspector or runtime revision
+    validations:
+      required: true
+  - type: textarea
+    id: findings
+    attributes:
+      label: Sanitized findings
+      description: Counts, format identifiers, stable codes, and observed behavior.
+    validations:
+      required: true
+  - type: dropdown
+    id: ownership
+    attributes:
+      label: Source of tested package
+      options:
+        - Original package authored by reporter
+        - Lawfully obtained third-party package tested locally
+        - Independently licensed fixture
+    validations:
+      required: true
