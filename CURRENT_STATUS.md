@@ -1,14 +1,34 @@
 # Current status
 
-Updated: 2026-06-20
+Updated: 2026-06-21
 
 ## Repository foundation
 
-- Repository layout and public project policy: **implemented**.
-- Local private context and Git safeguards: **installed in the supplied local workspace, not tracked**.
-- Public remote: **not configured**.
-- Initial commit: **not created**.
-- Upstream engine/gameplay forks and exact commit pins: **not established**.
+- Public umbrella repository and `main` branch: **established**.
+- Local private context and Git safeguards: **installed locally and excluded from public Git**.
+- Package inspector foundation: **implemented and validated**.
+- Upstream source-audit baseline: **recorded**.
+- Engine and gameplay forks: **not created**.
+
+## Verified upstream audit baseline
+
+The source audit records these exact upstream revisions:
+
+- NZ:P hub: `nzp-team/nzportable` at `648a1bc56b8a4de4c86a7fca2e1d76308dcd4ae5`.
+- Runtime assets: `nzp-team/assets` at `5c3527c0e60381db3afb2489bc882a44b76b9daf`.
+- Desktop/FTE engine: `nzp-team/fteqw` at `f68a2b547d2dc4bf6886b922baa1bff487cc5038`.
+- QuakeC gameplay: `nzp-team/quakec` at `6613eb72359d1244e6034d31c3d07f78c1cf9b6f`.
+
+These revisions are source-audit pins. They are not yet a demonstrated compatible build tuple.
+
+Confirmed findings:
+
+- The hub coordinates releases and assembles separately published engine, gameplay, and asset archives.
+- The assets repository contains runtime data required to play NZ:P.
+- The engine and gameplay repositories provide desktop build machinery.
+- FTEQW contains Android-related source and legacy build machinery.
+- No supported, modern, reproducible NZ:P Android build has been verified.
+- No root-level Git submodules were found in the four audited repositories.
 
 ## Implemented
 
@@ -27,8 +47,9 @@ Updated: 2026-06-20
 
 ## Not implemented
 
-- Android project, APK, or ARM64 build.
+- NZ:P T4 Android project, APK, or verified ARM64 build.
 - NZ:P engine or QuakeC fork integration.
+- Reproduced desktop engine/gameplay/runtime assembly at the audit pins.
 - Stock NZ:P map boot on Android.
 - Package extraction or conversion.
 - FastFile parsing.
@@ -49,4 +70,4 @@ A capability is not supported until source, tests, and a repeatable runtime resu
 
 ## Next measurable action
 
-Create and pin explicit forks of the NZ:P FTEQW engine and QuakeC repositories, then perform a source-grounded ARM64 Android build spike. The result must either boot one native NZ:P map with sanitized logs or document the exact reproducible blocker.
+Reproduce one Linux x86_64 desktop baseline from the audited FTEQW and QuakeC revisions, assemble it with the audited runtime assets, and boot one stock NZ:P map. Record exact commands, output hashes, and sanitized logs. Do not create an engine or gameplay fork until this baseline establishes which source changes are actually required.
