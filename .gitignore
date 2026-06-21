@@ -22,3 +22,6 @@ imports-local/
 .vscode/
 .DS_Store
 Thumbs.db
+
+# Default root-level inspector output
+/compatibility_report.json
