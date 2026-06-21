@@ -1,23 +1,53 @@
 format_version = 1
-updated = "2026-06-20"
+updated = "2026-06-21"
+baseline_kind = "source-audit"
+baseline_compatibility = "not-yet-reproduced-as-a-tuple"
 
 [[component]]
 name = "nzp-hub"
 url = "https://github.com/nzp-team/nzportable"
 default_branch = "main"
-pinned_commit = ""
+pinned_commit = "648a1bc56b8a4de4c86a7fca2e1d76308dcd4ae5"
+role = "project hub, issue coordination, release assembly"
 status = "reference-only"
+license = "no root license file observed"
+fork_policy = "do-not-fork"
+
+[[component]]
+name = "nzp-assets"
+url = "https://github.com/nzp-team/assets"
+default_branch = "main"
+pinned_commit = "5c3527c0e60381db3afb2489bc882a44b76b9daf"
+role = "runtime maps, textures, sounds, platform data, and selected source assets"
+status = "runtime-data-required"
+license = "CC-BY-SA-4.0"
+license_files = ["LICENSE.md"]
+fork_policy = "do-not-fork-before-runtime-assembly-reproduction"
 
 [[component]]
 name = "nzp-fteqw"
 url = "https://github.com/nzp-team/fteqw"
 default_branch = "master"
-pinned_commit = ""
-status = "fork-required"
+pinned_commit = "f68a2b547d2dc4bf6886b922baa1bff487cc5038"
+role = "desktop Linux, Windows, macOS, and Web engine source"
+status = "candidate-engine-baseline"
+license = "GPL-2.0 with additional bundled-component notices"
+license_files = [
+  "LICENSE",
+  "engine/LICENSE",
+  "engine/qclib/LICENSE",
+  "fteqtv/LICENSE",
+  "iqm/LICENSE",
+]
+fork_policy = "likely-after-baseline-reproduction"
 
 [[component]]
 name = "nzp-quakec"
 url = "https://github.com/nzp-team/quakec"
 default_branch = "main"
-pinned_commit = ""
-status = "fork-required"
+pinned_commit = "6613eb72359d1244e6034d31c3d07f78c1cf9b6f"
+role = "gameplay, server logic, shared definitions, and FTE CSQC"
+status = "candidate-gameplay-baseline"
+license = "GPL-2.0"
+license_files = ["LICENSE"]
+fork_policy = "defer-until-source-modification-is-required"
