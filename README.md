@@ -1,8 +1,8 @@
 # NZ:P T4
 
-NZ:P T4 is an **Android compatibility project** built around Nazi Zombies: Portable. Its long term purpose is to investigate and progressively support legally obtained Call of Duty: World at War custom Zombies maps without redistributing proprietary game data or third-party maps.
+NZ:P T4 is an **Android-first compatibility project** built around Nazi Zombies: Portable. Its long-term purpose is to investigate and progressively support legally obtained Call of Duty: World at War custom Zombies maps without redistributing proprietary game data or third-party maps.
 
-This repository is an early public foundation. It does **not** currently provide an Android game build or claim that any World at War custom map is playable.
+This repository remains an early public foundation. It does **not** currently provide an Android game build or claim that any World at War custom map is playable.
 
 ## Current capability
 
@@ -13,6 +13,15 @@ The first implemented component is a read-only package inspector. It can inspect
 - ZIP-compatible IWD archives.
 
 It generates a structured compatibility report containing package hashes, normalized file inventory, format counts, safety findings, possible native-code dependencies, and conservative framework-name hints. It does not execute, install, or extract imported content.
+
+A pinned Linux x86_64 upstream baseline has also been reproduced successfully:
+
+- the audited QuakeC revision compiled successfully;
+- the audited FTEQW revision produced a working Linux x86_64 executable;
+- the matching official PC asset archive assembled into a runnable NZ:P tree;
+- the stock map `4all` reached an active local game session.
+
+This desktop result verifies the upstream component relationship. It does not establish Android support or World at War compatibility. See [docs/LINUX_DESKTOP_BASELINE.md](docs/LINUX_DESKTOP_BASELINE.md).
 
 ## Non-goals
 
@@ -65,4 +74,4 @@ NZ:P T4 is an independent, unofficial project. It is not endorsed by Activision,
 
 ## License
 
-Original source in this repository is licensed under the GNU General Public License version 2 only. Third-party components retain their own notices and licenses. No upstream engine, NZ:P asset package, World at War content, or third-party map is included in this foundation.
+Original source in this repository is licensed under the GNU General Public License version 2 only. Third-party components retain their own notices and licenses. No upstream engine, NZ:P asset package, World at War content, or third-party map is included in this repository.
